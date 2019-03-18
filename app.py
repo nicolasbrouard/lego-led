@@ -61,11 +61,11 @@ def build_message(message):
 
 def validate(delay, freq, on):
     if delay < 0:
-        raise BadRequestError(f'delay should be positive ({delay})')
+        raise BadRequestError('delay should be positive ({delay})')
     if on < 0 or on > 100:
-        raise BadRequestError(f'on should be a percentage ({on})')
+        raise BadRequestError('on should be a percentage ({on})')
     if 0 < on < 100 and freq <= 0:
-        raise BadRequestError(f'freq should be strictly positive ({freq})')
+        raise BadRequestError('freq should be strictly positive ({freq})')
 
 
 def build_response(led_id, delay, on, freq):
@@ -74,11 +74,11 @@ def build_response(led_id, delay, on, freq):
         delay_str = f' in {delay} second(s)'
 
     if on == 0:
-        return build_message(f'Turn off led {led_id}{delay_str}')
+        return build_message('Turn off led {led_id}{delay_str}')
     elif on == 100:
-        return build_message(f'Turn on led {led_id}{delay_str}')
+        return build_message('Turn on led {led_id}{delay_str}')
     else:
-        return build_message(f'blink led {led_id} with freq {freq} Hz at {on} %{delay_str}')
+        return build_message('blink led {led_id} with freq {freq} Hz at {on} %{delay_str}')
 
 
 if __name__ == '__main__':
