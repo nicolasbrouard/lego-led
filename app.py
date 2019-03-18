@@ -71,7 +71,7 @@ def validate(delay, freq, on):
 def build_response(led_id, delay, on, freq):
     delay_str = ""
     if delay > 0:
-        delay_str = f' in {delay} second(s)'
+        delay_str = ' in {delay} second(s)'
 
     if on == 0:
         return build_message('Turn off led {led_id}{delay_str}')
